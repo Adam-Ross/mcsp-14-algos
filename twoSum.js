@@ -1,4 +1,4 @@
-const arr = [1,2,3,4,5,6,7,8,9]
+
 
 // O(n^2) brute-force solution
 // function twoSum(sum) {
@@ -15,19 +15,38 @@ const arr = [1,2,3,4,5,6,7,8,9]
 // console.log(twoSum(9))
 
 // Find a solution that uses only ONE for loop. This will make this an O(n) / linear runtime.
+// function twoSum(sum) {
+//     const pastNumbers = {}
+//     let neededNumber, current
+//     for(let i = 0; i < arr.length; i++) {
+//         current = arr[i]
+//         neededNumber = sum - current
+//         if(pastNumbers[neededNumber]) {
+//             return true
+//         } else {
+//             pastNumbers[current] = true
+//         }
+//     }
+//     return false
+// }
+
+// console.log(twoSum(9))
+
+const arr = [1,2,3,4,5,6,7,8,9]
+
 function twoSum(sum) {
-    const pastNumbers = {}
-    let neededNumber, current
+    const pastNumbers = []
+    let current, neededNumber
     for(let i = 0; i < arr.length; i++) {
         current = arr[i]
         neededNumber = sum - current
-        if(pastNumbers[neededNumber]) {
-            return true
+        if(!pastNumbers.includes(neededNumber)) {
+            pastNumbers.push(current)
         } else {
-            pastNumbers[current] = true
+            return true
         }
     }
     return false
 }
 
-console.log(twoSum(9))
+console.log(twoSum(9999))
